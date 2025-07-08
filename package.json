@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./src/server.ts",
   "scripts": {
-    "dev": "node --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types --watch ./src/server.ts",
+    "dev": "node --env-file=.env --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types --watch ./src/server.ts",
     "start": "node --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types ./src/server.ts",
     "lint": "npx ultracite lint",
     "format": "npx ultracite format",
