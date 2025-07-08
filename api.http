@@ -1,1 +1,5 @@
-GET http://localhost:3000
+# Variables
+@baseUrl = http://localhost:3000
+
+# Get transactions categories
+GET {{baseUrl}}/categories
