@@ -1,0 +1,32 @@
+{
+  "name": "ai-personal-agents",
+  "version": "1.0.0",
+  "description": "Conjunto de ai agents para organização pessoal",
+  "type": "module",
+  "main": "./src/server.ts",
+  "scripts": {
+    "dev": "node --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types --watch ./src/server.ts",
+    "start": "node --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types ./src/server.ts",
+    "lint": "npx ultracite lint",
+    "format": "npx ultracite format",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "personal"
+  ],
+  "author": "alisson-moura",
+  "license": "MIT",
+  "imports": {
+    "#app/*": "./src/*"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.6",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.0.10",
+    "husky": "^9.1.7",
+    "typescript": "^5.8.3",
+    "ultracite": "5.0.32"
+  }
+}
