@@ -1,6 +1,6 @@
 import { reset } from 'drizzle-seed';
-import { db, pool } from '../index.ts';
-import { schema } from '../schema/index.ts';
+import { db, pool } from '../index';
+import { schema } from '../schema/index';
 
 const defaultCategories = [
   // --- RECEITAS ---
@@ -106,7 +106,16 @@ const defaultCategories = [
   },
 ];
 
-await reset(db, schema);
-await db.insert(schema.categories).values(defaultCategories);
+async function runSeed() {
+  try {
+    await reset(db, schema);
+    await db.insert(schema.categories).values(defaultCategories);
+  } catch (error) {
+    // biome-ignore lint/suspicious/noConsole: Log de erro em desenvolvimento
+    console.error(error);
+  } finally {
+    await pool.end();
+  }
+}
 
-await pool.end();
+runSeed();

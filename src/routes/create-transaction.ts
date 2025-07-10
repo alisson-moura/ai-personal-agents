@@ -1,7 +1,7 @@
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod';
 import z from 'zod/v4';
-import { db } from '#app/database/index.ts';
-import { schema } from '#app/database/schema/index.ts';
+import { db } from '../database/index';
+import { schema } from '../database/schema/index';
 
 export const createTransaction: FastifyPluginCallbackZod = (app, _, done) => {
   app.post(

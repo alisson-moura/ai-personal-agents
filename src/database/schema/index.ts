@@ -5,7 +5,7 @@ import {
   transactions,
   transactionsRelations,
   transactionTypeEnum,
-} from './transaction.ts';
+} from './transaction';
 
 export const schema = {
   categories,
