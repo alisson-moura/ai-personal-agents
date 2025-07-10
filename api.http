@@ -3,3 +3,25 @@
 
 # Get transactions categories
 GET {{baseUrl}}/categories
+
+###
+
+# Create transaction
+POST {{baseUrl}}/transactions
+Accept: application/json
+Content-Type: application/json
+
+{
+    "categoryId": 19,
+    "amount": 15000,
+    "description": "Aluguel, internet e energia",
+    "paymentMethod": "pix",
+    "transactionDate": "2025-07-08",
+    "type": "expense"
+}
+
+###
+
+# Get transactions by date range
+# A rota espera as datas no formato query string (ex: ?start_date=...&end_date=...)
+GET {{baseUrl}}/transactions?start_date=2025-07-01&end_date=2025-08-01

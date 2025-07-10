@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "node --env-file=.env --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types --watch ./src/server.ts",
     "start": "node --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types ./src/server.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
     "db:seed": "node --env-file=.env --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types ./src/database/seed/index.ts",
     "lint": "npx ultracite lint",
     "format": "npx ultracite format",
