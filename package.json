@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
+    "@google/genai": "^1.9.0",
+    "chrono-node": "^2.8.3",
     "dotenv": "^17.1.0",
     "drizzle-orm": "^0.44.2",
     "drizzle-seed": "^0.3.1",

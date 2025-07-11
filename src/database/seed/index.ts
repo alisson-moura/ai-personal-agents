@@ -2,7 +2,7 @@ import { reset } from 'drizzle-seed';
 import { db, pool } from '../index';
 import { schema } from '../schema/index';
 
-const defaultCategories = [
+export const defaultCategories = [
   // --- RECEITAS ---
   {
     name: 'Salário',
@@ -106,7 +106,7 @@ const defaultCategories = [
   },
 ];
 
-async function runSeed() {
+async function _runSeed() {
   try {
     await reset(db, schema);
     await db.insert(schema.categories).values(defaultCategories);
@@ -117,5 +117,3 @@ async function runSeed() {
     await pool.end();
   }
 }
-
-runSeed();

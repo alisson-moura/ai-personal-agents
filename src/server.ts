@@ -7,6 +7,7 @@ import {
 } from 'fastify-type-provider-zod';
 import { env } from './env';
 import { client } from './lib/whatsapp';
+import { alfredAI } from './routes/alfred-ai';
 import { createTransaction } from './routes/create-transaction';
 import { getCategoriesRoute } from './routes/get-categories';
 import { getTransactions } from './routes/get-transactions';
@@ -20,6 +21,7 @@ fastify.setSerializerCompiler(serializerCompiler);
 fastify.register(getCategoriesRoute);
 fastify.register(createTransaction);
 fastify.register(getTransactions);
+fastify.register(alfredAI);
 
 fastify
   .listen({ port: env.HTTP_PORT })
