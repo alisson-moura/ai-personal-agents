@@ -9,6 +9,10 @@ import {
   create_transaction,
   createTransactionInput,
 } from './tools/create-transaction';
+import {
+  generate_financial_report,
+  generateFinancialReportInput,
+} from './tools/generate-financial-report';
 
 interface AgentState {
   contents: Content[];
@@ -21,6 +25,10 @@ const TOOL_REGISTRY = {
   create_transaction: {
     handler: create_transaction,
     inputParser: createTransactionInput,
+  },
+  generate_financial_report: {
+    handler: generate_financial_report,
+    inputParser: generateFinancialReportInput,
   },
 } as const;
 
@@ -129,7 +137,8 @@ export class AlfredAgent {
       }
 
       const validatedArgs = tool.inputParser.parse(functionCall.args);
-      const result = await tool.handler(validatedArgs);
+      // biome-ignore lint/suspicious/noExplicitAny: as tools possuem input dinâmico
+      const result = await tool.handler(validatedArgs as any);
 
       return {
         name: functionCall.name,
