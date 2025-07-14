@@ -1,8 +1,8 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
-    "noEmit": true,
+    "noEmit": false,
     "strictNullChecks": true,
-    "allowImportingTsExtensions": true
+    "outDir": "./dist"
   }
 }

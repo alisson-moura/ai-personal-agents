@@ -1,6 +1,6 @@
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod';
-import { db } from '#app/database/index.ts';
-import { schema } from '#app/database/schema/index.ts';
+import { db } from '../database/index';
+import { schema } from '../database/schema/index';
 
 export const getCategoriesRoute: FastifyPluginCallbackZod = (app) => {
   app.get('/categories', async () => {

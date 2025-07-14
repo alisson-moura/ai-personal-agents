@@ -2,12 +2,14 @@
   "name": "ai-personal-agents",
   "version": "1.0.0",
   "description": "Conjunto de ai agents para organização pessoal",
-  "type": "module",
-  "main": "./src/server.ts",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "node --env-file=.env --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types --watch ./src/server.ts",
-    "start": "node --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types ./src/server.ts",
-    "db:seed": "node --env-file=.env --no-warnings=ExperimentalWarning --experimental-strip-types --experimental-transform-types ./src/database/seed/index.ts",
+    "dev": "tsx watch --env-file=.env ./src/server.ts",
+    "start": "node --env-file=.env dist/index.js",
+    "build": "tsc",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx --env-file=.env ./src/database/seed/index.ts",
     "lint": "npx ultracite lint",
     "format": "npx ultracite format",
     "prepare": "husky install"
@@ -19,14 +21,12 @@
   ],
   "author": "alisson-moura",
   "license": "MIT",
-  "imports": {
-    "#app/*": "./src/*"
-  },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
     "@tsconfig/node22": "^22.0.2",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.0.12",
     "@types/pg": "^8.15.4",
+    "@types/qrcode-terminal": "^0.12.2",
     "drizzle-kit": "^0.31.4",
     "husky": "^9.1.7",
     "tsx": "^4.20.3",
@@ -35,12 +35,16 @@
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
+    "@google/genai": "^1.9.0",
+    "chrono-node": "^2.8.3",
     "dotenv": "^17.1.0",
     "drizzle-orm": "^0.44.2",
     "drizzle-seed": "^0.3.1",
     "fastify": "^5.4.0",
     "fastify-type-provider-zod": "^5.0.2",
     "pg": "^8.16.3",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.31.0",
     "zod": "^3.25.76"
   }
 }
